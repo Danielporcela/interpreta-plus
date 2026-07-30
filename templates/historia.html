@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}História - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central card-larga">
+    <h2 class="titulo-historia">📖 {{ historia['titulo'] }}</h2>
+    <p class="texto-historia">{{ historia['texto'] }}</p>
+
+    <form method="POST" action="{{ url_for('historias.responder') }}" class="form-perguntas">
+        <input type="hidden" name="historia_id" value="{{ historia['id'] }}">
+
+        {% for p in perguntas %}
+        <div class="bloco-pergunta">
+            <h3>Pergunta {{ loop.index }}</h3>
+            <p class="texto-pergunta">{{ p['texto'] }}</p>
+
+            <div class="alternativas">
+                {% for letra in ['a', 'b', 'c', 'd', 'e'] %}
+                    {% set alt = p[letra] %}
+                    {% if alt %}
+                    <label class="alternativa">
+                        <input type="radio" name="pergunta_{{ p['id'] }}" value="{{ letra }}" required>
+                        <span>{{ alt }}</span>
+                    </label>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="botao-grande botao-verde">Responder ✔</button>
+    </form>
+</div>
+
+{% endblock %}

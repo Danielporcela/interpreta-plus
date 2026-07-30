@@ -1,0 +1,8 @@
+[
+  {"codigo": "primeiro_dia", "titulo": "Primeiro Passo", "descricao": "Completou a primeira história.", "icone": "🥇"},
+  {"codigo": "sequencia_3", "titulo": "Em Ritmo", "descricao": "Estudou 3 dias seguidos.", "icone": "🔥"},
+  {"codigo": "sequencia_7", "titulo": "Semana Completa", "descricao": "Estudou 7 dias seguidos.", "icone": "🏆"},
+  {"codigo": "pontuacao_100", "titulo": "Centena", "descricao": "Alcançou 100 pontos.", "icone": "💯"},
+  {"codigo": "nivel_2", "titulo": "Subindo de Nível", "descricao": "Chegou ao nível 2.", "icone": "⭐"},
+  {"codigo": "gabarito", "titulo": "Gabarito", "descricao": "Acertou todas as perguntas de uma história.", "icone": "🎯"}
+]

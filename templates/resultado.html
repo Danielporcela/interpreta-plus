@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Resultado - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central">
+    <h2 class="titulo-resultado">Resultado</h2>
+
+    <div class="cartoes-status">
+        <div class="cartao-status cartao-acertos">
+            <div class="cartao-icone">✔</div>
+            <div class="cartao-valor">{{ acertos }}</div>
+            <div class="cartao-label">Acertos</div>
+        </div>
+        <div class="cartao-status cartao-erros">
+            <div class="cartao-icone">✖</div>
+            <div class="cartao-valor">{{ erros }}</div>
+            <div class="cartao-label">Erros</div>
+        </div>
+        <div class="cartao-status cartao-pontos">
+            <div class="cartao-icone">🏆</div>
+            <div class="cartao-valor">{{ pontuacao }}</div>
+            <div class="cartao-label">Pontuação</div>
+        </div>
+    </div>
+
+    <p class="estrelas">
+        {% set n_estrelas = (pontuacao // 20) %}
+        {% for i in range(5) %}{% if i < n_estrelas %}★{% else %}☆{% endif %}{% endfor %}
+    </p>
+
+    {% if feedback_ia %}
+    <p class="mensagem-ia">💬 {{ feedback_ia }}</p>
+    {% endif %}
+
+    {% if subiu_nivel %}
+    <p class="mensagem-nivel">🎉 Você subiu para o nível {{ novo_nivel }}!</p>
+    {% endif %}
+
+    {% if novas_medalhas %}
+    <div class="medalhas-novas">
+        {% for m in novas_medalhas %}
+        <div class="medalha-conquistada-agora">
+            <span class="medalha-icone">{{ m['icone'] }}</span>
+            <span>Nova conquista: <strong>{{ m['titulo'] }}</strong></span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="detalhes-resultado">
+        {% for d in detalhes %}
+        <div class="linha-detalhe {{ 'correta' if d.correta else 'errada' }}">
+            <p><strong>{{ d.pergunta }}</strong></p>
+            {% if not d.correta %}
+                <p class="explicacao">{{ d.explicacao }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="{{ url_for('dashboard.index') }}" class="botao-grande botao-verde">Continuar</a>
+</div>
+
+{% endblock %}

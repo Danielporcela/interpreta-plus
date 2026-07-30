@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Conquistas - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central">
+    <h2 class="titulo-resultado">🏆 Conquistas</h2>
+    <p class="subtitulo">{{ conquistadas|length }} de {{ todas|length }} medalhas conquistadas</p>
+
+    <div class="grade-medalhas">
+        {% for m in todas %}
+        <div class="medalha {{ 'conquistada' if m['codigo'] in codigos_conquistados else 'bloqueada' }}">
+            <div class="medalha-icone">{{ m['icone'] }}</div>
+            <div class="medalha-titulo">{{ m['titulo'] }}</div>
+            <div class="medalha-descricao">{{ m['descricao'] }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Editar' if historia else 'Nova' }} História - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central card-larga">
+    <a href="{{ url_for('admin.index') }}" class="link-secundario">← Voltar</a>
+    <h2 class="titulo-resultado">{{ 'Editar história' if historia else 'Nova história' }}</h2>
+
+    <form method="POST" class="form-grande">
+        <label>Título</label>
+        <input type="text" name="titulo" value="{{ historia['titulo'] if historia else '' }}" required>
+
+        <label>Texto da história</label>
+        <textarea name="texto" rows="5" required>{{ historia['texto'] if historia else '' }}</textarea>
+
+        <label>Nível</label>
+        <input type="number" name="nivel" min="1" max="10" value="{{ historia['nivel'] if historia else 1 }}" required>
+
+        <label>Categoria</label>
+        <input type="text" name="categoria" value="{{ historia['categoria'] if historia else 'geral' }}" required>
+
+        <button type="submit" class="botao-grande botao-verde">
+            {{ 'Salvar alterações' if historia else 'Cadastrar história' }}
+        </button>
+    </form>
+
+    {% if historia %}
+    <h3 class="subtitulo-secao">Perguntas desta história</h3>
+
+    <div class="lista-historico">
+        {% for p in perguntas %}
+        <div class="item-historico item-pergunta">
+            <div>
+                <strong>{{ p['texto'] }}</strong><br>
+                <span class="explicacao">Correta: {{ p['correta']|upper }} — {{ p['explicacao'] }}</span>
+            </div>
+            <form method="POST" action="{{ url_for('admin.excluir_pergunta', pergunta_id=p['id']) }}"
+                  onsubmit="return confirm('Excluir esta pergunta?');">
+                <button type="submit" class="link-excluir">Excluir</button>
+            </form>
+        </div>
+        {% else %}
+        <p>Nenhuma pergunta cadastrada ainda.</p>
+        {% endfor %}
+    </div>
+
+    <h3 class="subtitulo-secao">Adicionar nova pergunta</h3>
+    <form method="POST" action="{{ url_for('admin.nova_pergunta', historia_id=historia['id']) }}" class="form-grande">
+        <label>Pergunta</label>
+        <input type="text" name="texto" required>
+
+        <label>Alternativa A</label>
+        <input type="text" name="a" required>
+        <label>Alternativa B</label>
+        <input type="text" name="b" required>
+        <label>Alternativa C</label>
+        <input type="text" name="c" required>
+        <label>Alternativa D</label>
+        <input type="text" name="d" required>
+        <label>Alternativa E (opcional)</label>
+        <input type="text" name="e">
+
+        <label>Alternativa correta</label>
+        <select name="correta" required>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+            <option value="e">E</option>
+        </select>
+
+        <label>Explicação (mostrada quando a criança erra)</label>
+        <input type="text" name="explicacao">
+
+        <button type="submit" class="botao-grande botao-verde">Adicionar pergunta</button>
+    </form>
+    {% else %}
+    <p class="subtitulo">Salve a história para poder adicionar perguntas.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

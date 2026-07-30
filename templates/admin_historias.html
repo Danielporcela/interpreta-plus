@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Administração - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central card-larga">
+    <h2 class="titulo-resultado">🛠 Administração de Conteúdo</h2>
+
+    <a href="{{ url_for('admin.nova_historia') }}" class="botao-grande botao-verde">+ Nova história</a>
+
+    <h3 class="subtitulo-secao">Histórias cadastradas</h3>
+    <div class="lista-historico">
+        {% for h in historias %}
+        <div class="item-historico">
+            <span>Nível {{ h['nivel'] }} — {{ h['titulo'] }}</span>
+            <span>{{ h['categoria']|capitalize }}</span>
+            <span>
+                <a href="{{ url_for('admin.editar_historia', historia_id=h['id']) }}">Editar</a>
+                &nbsp;|&nbsp;
+                <form method="POST" action="{{ url_for('admin.excluir_historia', historia_id=h['id']) }}"
+                      style="display:inline" onsubmit="return confirm('Excluir esta história e suas perguntas?');">
+                    <button type="submit" class="link-excluir">Excluir</button>
+                </form>
+            </span>
+        </div>
+        {% else %}
+        <p>Nenhuma história cadastrada ainda.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

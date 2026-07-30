@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Área dos Pais - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central card-larga">
+    <h2 class="titulo-resultado">👨‍👩‍👧 Área dos Pais</h2>
+
+    <h3 class="subtitulo-secao">Vincular criança</h3>
+    <form method="POST" action="{{ url_for('pais.vincular') }}" class="form-grande">
+        <label>E-mail da conta da criança</label>
+        <input type="email" name="email_crianca" placeholder="email-da-crianca@exemplo.com" required>
+        <button type="submit" class="botao-grande botao-verde">Vincular</button>
+    </form>
+
+    <h3 class="subtitulo-secao">Crianças vinculadas</h3>
+    {% if criancas %}
+    <div class="lista-historico">
+        {% for c in criancas %}
+        <a href="{{ url_for('pais.detalhe', crianca_id=c['id']) }}" class="item-historico item-clicavel">
+            <span>{{ c['nome'] }}</span>
+            <span>Nível {{ c['nivel'] }}</span>
+            <span>{{ c['pontos'] }} pts</span>
+        </a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>Nenhuma criança vinculada ainda. Use o e-mail da conta dela acima.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

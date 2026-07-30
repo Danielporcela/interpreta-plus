@@ -1,0 +1,68 @@
+[
+  {
+    "titulo": "O dia da apresentação",
+    "nivel": 1,
+    "categoria": "escola",
+    "texto": "Pedro saiu cedo para a escola porque tinha uma apresentação de trabalho. No caminho, ele repetia o texto em voz baixa para não esquecer. Quando chegou, viu que Ana também estava nervosa, andando de um lado para o outro perto da porta da sala.",
+    "perguntas": [
+      {
+        "texto": "Por que Pedro saiu cedo de casa?",
+        "a": "Porque perdeu o ônibus",
+        "b": "Porque tinha uma apresentação de trabalho",
+        "c": "Porque queria brincar antes da aula",
+        "d": "Porque a escola mudou de endereço",
+        "e": "Não é possível saber",
+        "correta": "b",
+        "explicacao": "O texto diz que Pedro saiu cedo porque tinha uma apresentação de trabalho."
+      },
+      {
+        "texto": "O que Pedro fazia no caminho para a escola?",
+        "a": "Ouvia música",
+        "b": "Conversava com amigos",
+        "c": "Repetia o texto da apresentação",
+        "d": "Dormia",
+        "e": "Corria",
+        "correta": "c",
+        "explicacao": "Ele repetia o texto em voz baixa para não esquecer."
+      },
+      {
+        "texto": "Como Ana parecia estar se sentindo?",
+        "a": "Calma",
+        "b": "Nervosa",
+        "c": "Com sono",
+        "d": "Feliz",
+        "e": "Com raiva",
+        "correta": "b",
+        "explicacao": "Ana estava andando de um lado para o outro, o que indica nervosismo."
+      }
+    ]
+  },
+  {
+    "titulo": "O brinquedo emprestado",
+    "nivel": 1,
+    "categoria": "amizade",
+    "texto": "Lucas emprestou seu carrinho novo para Rafael no recreio. Quando o sinal tocou, Rafael devolveu o carrinho correndo e disse: 'Obrigado, foi muito legal brincar com você'. Lucas sorriu e guardou o carrinho na mochila.",
+    "perguntas": [
+      {
+        "texto": "O que Lucas emprestou para Rafael?",
+        "a": "Um livro",
+        "b": "Um lápis",
+        "c": "Um carrinho",
+        "d": "Uma bola",
+        "e": "Um caderno",
+        "correta": "c",
+        "explicacao": "O texto diz que Lucas emprestou seu carrinho novo."
+      },
+      {
+        "texto": "Como Rafael provavelmente se sentiu ao brincar com o carrinho?",
+        "a": "Entediado",
+        "b": "Contente",
+        "c": "Com raiva",
+        "d": "Assustado",
+        "e": "Triste",
+        "correta": "b",
+        "explicacao": "Ele disse que foi muito legal brincar, o que mostra que gostou."
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Biblioteca - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central card-larga">
+    <h2 class="titulo-resultado">📚 Biblioteca de Conteúdo</h2>
+    <p class="subtitulo">Escolha qualquer história para praticar livremente.</p>
+
+    {% for nivel, historias_nivel in por_nivel.items()|sort %}
+    <h3 class="subtitulo-secao">Nível {{ nivel }}</h3>
+    <div class="lista-historico">
+        {% for h in historias_nivel %}
+        <a href="{{ url_for('biblioteca.praticar', historia_id=h['id']) }}" class="item-historico item-clicavel">
+            <span>{{ '✔' if h['id'] in concluidas else '📖' }} {{ h['titulo'] }}</span>
+            <span>{{ h['categoria']|capitalize }}</span>
+        </a>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

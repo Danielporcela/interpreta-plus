@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{ crianca['nome'] }} - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central card-larga">
+    <a href="{{ url_for('pais.index') }}" class="link-secundario">← Voltar</a>
+    <h2 class="titulo-resultado">📊 {{ crianca['nome'] }}</h2>
+
+    <div class="cartoes-status">
+        <div class="cartao-status">
+            <div class="cartao-icone">📅</div>
+            <div class="cartao-valor">{{ crianca['dias_estudo'] }}</div>
+            <div class="cartao-label">Dias estudados</div>
+        </div>
+        <div class="cartao-status">
+            <div class="cartao-icone">🔥</div>
+            <div class="cartao-valor">{{ crianca['sequencia'] }}</div>
+            <div class="cartao-label">Sequência</div>
+        </div>
+        <div class="cartao-status">
+            <div class="cartao-icone">🏆</div>
+            <div class="cartao-valor">{{ crianca['pontos'] }}</div>
+            <div class="cartao-label">Pontos</div>
+        </div>
+        <div class="cartao-status">
+            <div class="cartao-icone">⭐</div>
+            <div class="cartao-valor">{{ crianca['nivel'] }}</div>
+            <div class="cartao-label">Nível</div>
+        </div>
+        <div class="cartao-status">
+            <div class="cartao-icone">✔</div>
+            <div class="cartao-valor">{{ resumo.percentual_acertos }}%</div>
+            <div class="cartao-label">Acertos gerais</div>
+        </div>
+    </div>
+
+    <h3 class="subtitulo-secao">Desempenho por área</h3>
+    {% if por_categoria %}
+    <div class="lista-historico">
+        {% for c in por_categoria %}
+        <div class="item-historico">
+            <span>{{ c.categoria|capitalize }}</span>
+            <span>{{ c.acertos }}/{{ c.total }} acertos</span>
+            <span>{{ c.percentual }}%</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>Ainda não há atividades suficientes para gerar o relatório por área.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

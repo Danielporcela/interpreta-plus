@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Configurações - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central card-larga">
+    <h2 class="titulo-resultado">⚙ Configurações</h2>
+
+    <h3 class="subtitulo-secao">Preferências</h3>
+    <form method="POST" class="form-grande">
+        <input type="hidden" name="acao" value="preferencias">
+
+        <label class="opcao-toggle">
+            <input type="checkbox" name="som_ativado" {% if config['som_ativado'] %}checked{% endif %}>
+            🔊 Som de acerto/erro
+        </label>
+
+        <label class="opcao-toggle">
+            <input type="checkbox" name="animacoes_ativadas" {% if config['animacoes_ativadas'] %}checked{% endif %}>
+            ✨ Animações
+        </label>
+
+        <label class="opcao-toggle">
+            <input type="checkbox" name="lembrete_diario" {% if config['lembrete_diario'] %}checked{% endif %}>
+            🔔 Lembrete diário de treino
+        </label>
+
+        <button type="submit" class="botao-grande botao-verde">Salvar preferências</button>
+    </form>
+
+    <h3 class="subtitulo-secao">Alterar senha</h3>
+    <form method="POST" class="form-grande">
+        <input type="hidden" name="acao" value="senha">
+
+        <label>Senha atual</label>
+        <input type="password" name="senha_atual" required>
+
+        <label>Nova senha</label>
+        <input type="password" name="nova_senha" required minlength="4">
+
+        <button type="submit" class="botao-grande botao-verde">Alterar senha</button>
+    </form>
+</div>
+
+{% endblock %}

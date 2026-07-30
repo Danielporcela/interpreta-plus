@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Perfil - INTERPRETA+{% endblock %}
+{% block content %}
+
+<div class="card-central">
+    <h2 class="titulo-resultado">👤 {{ user['nome'] }}</h2>
+
+    <div class="cartoes-status">
+        <div class="cartao-status">
+            <div class="cartao-icone">🎂</div>
+            <div class="cartao-valor">{{ user['idade'] or '-' }}</div>
+            <div class="cartao-label">Idade</div>
+        </div>
+        <div class="cartao-status">
+            <div class="cartao-icone">📅</div>
+            <div class="cartao-valor">{{ user['dias_estudo'] }}</div>
+            <div class="cartao-label">Dias estudados</div>
+        </div>
+        <div class="cartao-status">
+            <div class="cartao-icone">🔥</div>
+            <div class="cartao-valor">{{ user['sequencia'] }}</div>
+            <div class="cartao-label">Maior sequência</div>
+        </div>
+        <div class="cartao-status">
+            <div class="cartao-icone">🏆</div>
+            <div class="cartao-valor">{{ user['pontos'] }}</div>
+            <div class="cartao-label">Pontuação</div>
+        </div>
+        <div class="cartao-status">
+            <div class="cartao-icone">⭐</div>
+            <div class="cartao-valor">{{ user['nivel'] }}</div>
+            <div class="cartao-label">Nível</div>
+        </div>
+    </div>
+
+    <h3 class="subtitulo-secao">Histórico de atividades</h3>
+    <div class="lista-historico">
+        {% for h in historico %}
+        <div class="item-historico">
+            <span>Nível {{ h['nivel'] }}</span>
+            <span>{{ h['acertos'] }} acertos / {{ h['erros'] }} erros</span>
+            <span>{{ h['pontos'] }} pts</span>
+        </div>
+        {% else %}
+        <p>Nenhuma atividade concluída ainda.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

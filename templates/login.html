@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Entrar - INTERPRETA+{% endblock %}
+{% block content %}
+<div class="card-central">
+    <h1 class="logo-grande">INTERPRETA<span>+</span></h1>
+
+    <form method="POST" class="form-grande">
+        <label>E-mail</label>
+        <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
+
+        <label>Senha</label>
+        <input type="password" name="senha" placeholder="Sua senha" required>
+
+        <button type="submit" class="botao-grande botao-verde">Entrar ▶</button>
+    </form>
+
+    <p class="link-secundario">
+        Ainda não tem conta? <a href="{{ url_for('auth.cadastro') }}">Criar conta</a>
+    </p>
+</div>
+{% endblock %}

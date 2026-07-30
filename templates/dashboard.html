@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Início - INTERPRETA+{% endblock %}
+{% block content %}
+
+<h1 class="saudacao">Olá, {{ user['nome'] }} 👋</h1>
+
+<div class="cartoes-status">
+    <div class="cartao-status cartao-nivel">
+        <div class="cartao-icone">⭐</div>
+        <div class="cartao-valor">{{ user['nivel'] }}</div>
+        <div class="cartao-label">Nível</div>
+    </div>
+    <div class="cartao-status cartao-pontos">
+        <div class="cartao-icone">🏆</div>
+        <div class="cartao-valor">{{ user['pontos'] }}</div>
+        <div class="cartao-label">Pontos</div>
+    </div>
+    <div class="cartao-status cartao-dias">
+        <div class="cartao-icone">📅</div>
+        <div class="cartao-valor">{{ user['dias_estudo'] }}</div>
+        <div class="cartao-label">Dias</div>
+    </div>
+    <div class="cartao-status cartao-sequencia">
+        <div class="cartao-icone">🔥</div>
+        <div class="cartao-valor">{{ user['sequencia'] }}</div>
+        <div class="cartao-label">Sequência</div>
+    </div>
+</div>
+
+<div class="area-treino">
+    <a href="{{ url_for('historias.treino') }}" class="botao-grande botao-treino">
+        ▶ Iniciar treino
+    </a>
+</div>
+
+{% endblock %}

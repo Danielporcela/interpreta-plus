@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Criar conta - INTERPRETA+{% endblock %}
+{% block content %}
+<div class="card-central">
+    <h1 class="logo-grande">INTERPRETA<span>+</span></h1>
+    <p class="subtitulo">Criar conta</p>
+
+    <form method="POST" class="form-grande">
+        <label>Tipo de conta</label>
+        <div class="alternativas">
+            <label class="alternativa">
+                <input type="radio" name="tipo" value="crianca" checked>
+                <span>🧒 Conta da criança (faz o treino)</span>
+            </label>
+            <label class="alternativa">
+                <input type="radio" name="tipo" value="responsavel">
+                <span>👨‍👩‍👧 Conta de responsável (acompanha o progresso)</span>
+            </label>
+        </div>
+
+        <label>Nome</label>
+        <input type="text" name="nome" placeholder="Nome da criança" required>
+
+        <label>Idade</label>
+        <input type="number" name="idade" placeholder="Idade" min="3" max="18">
+
+        <label>E-mail</label>
+        <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
+
+        <label>Senha</label>
+        <input type="password" name="senha" placeholder="Crie uma senha" required>
+
+        <button type="submit" class="botao-grande botao-verde">Criar conta 🚀</button>
+    </form>
+
+    <p class="link-secundario">
+        Já tem conta? <a href="{{ url_for('auth.login') }}">Entrar</a>
+    </p>
+</div>
+{% endblock %}

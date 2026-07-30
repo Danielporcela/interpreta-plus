@@ -1,0 +1,466 @@
+:root {
+    --verde: #58cc02;
+    --verde-escuro: #46a302;
+    --azul: #1cb0f6;
+    --amarelo: #ffc800;
+    --vermelho: #ff4b4b;
+    --roxo: #ce82ff;
+    --cinza-fundo: #f7f7f7;
+    --cinza-borda: #e5e5e5;
+    --texto: #3c3c3c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--cinza-fundo);
+    color: var(--texto);
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 16px 24px;
+    border-bottom: 2px solid var(--cinza-borda);
+    flex-wrap: wrap;
+}
+
+.menu-logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--texto);
+}
+
+.menu-logo span {
+    color: var(--verde);
+}
+
+.menu-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--texto);
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.menu-links a:hover {
+    color: var(--verde);
+}
+
+/* Conteúdo */
+.conteudo {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 16px 60px;
+}
+
+.flash {
+    background: #fff4cc;
+    border: 2px solid var(--amarelo);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Cards */
+.card-central {
+    background: white;
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: 0 4px 0 var(--cinza-borda);
+    text-align: center;
+}
+
+.card-larga {
+    text-align: left;
+}
+
+.logo-grande {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.logo-grande span {
+    color: var(--verde);
+}
+
+.subtitulo {
+    font-weight: 700;
+    color: #777;
+    margin-bottom: 16px;
+}
+
+/* Formulários */
+.form-grande {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-grande label {
+    font-weight: 700;
+    margin: 12px 0 6px;
+    font-size: 14px;
+}
+
+.form-grande input,
+.form-grande textarea,
+.form-grande select {
+    padding: 14px 16px;
+    border: 2px solid var(--cinza-borda);
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.form-grande textarea,
+.form-grande select {
+    margin-top: 0;
+}
+
+.form-grande input:focus,
+.form-grande textarea:focus,
+.form-grande select:focus {
+    outline: none;
+    border-color: var(--azul);
+}
+
+.link-excluir {
+    background: none;
+    border: none;
+    color: var(--vermelho);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+}
+
+.item-pergunta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+/* Botões */
+.botao-grande {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 24px;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+    transition: transform 0.05s ease-in-out;
+}
+
+.botao-grande:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+.botao-verde {
+    background: var(--verde);
+    color: white;
+}
+
+.botao-verde:hover {
+    background: var(--verde-escuro);
+}
+
+.botao-treino {
+    background: var(--azul);
+    color: white;
+    font-size: 22px;
+    padding: 22px;
+}
+
+.link-secundario {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.link-secundario a {
+    color: var(--azul);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Saudação e cartões de status */
+.saudacao {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.cartoes-status {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.cartao-status {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 20px;
+    min-width: 90px;
+    text-align: center;
+    box-shadow: 0 3px 0 var(--cinza-borda);
+}
+
+.cartao-icone {
+    font-size: 26px;
+}
+
+.cartao-valor {
+    font-size: 22px;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+.cartao-label {
+    font-size: 12px;
+    color: #888;
+    font-weight: 600;
+}
+
+.area-treino {
+    margin-top: 20px;
+}
+
+/* História */
+.titulo-historia {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.texto-historia {
+    font-size: 18px;
+    line-height: 1.6;
+    background: #f0faff;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.bloco-pergunta {
+    margin-top: 28px;
+}
+
+.texto-pergunta {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.alternativa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f7f7f7;
+    border: 2px solid var(--cinza-borda);
+    border-radius: 14px;
+    padding: 14px 16px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.alternativa:has(input:checked) {
+    border-color: var(--azul);
+    background: #e6f7ff;
+}
+
+/* Resultado */
+.titulo-resultado {
+    font-size: 26px;
+}
+
+.estrelas {
+    font-size: 32px;
+    color: var(--amarelo);
+    margin: 10px 0;
+}
+
+.mensagem-nivel {
+    background: #fff4cc;
+    border-radius: 12px;
+    padding: 12px;
+    font-weight: 700;
+    color: var(--verde-escuro);
+}
+
+.mensagem-ia {
+    background: #f0e6ff;
+    border: 2px solid var(--roxo);
+    border-radius: 12px;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.detalhes-resultado {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.linha-detalhe {
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.linha-detalhe.correta {
+    background: #eaffea;
+    border: 2px solid var(--verde);
+}
+
+.linha-detalhe.errada {
+    background: #ffecec;
+    border: 2px solid var(--vermelho);
+}
+
+.explicacao {
+    font-size: 14px;
+    color: #555;
+    margin-top: 6px;
+}
+
+/* Perfil */
+.subtitulo-secao {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.lista-historico {
+    text-align: left;
+}
+
+.item-historico {
+    display: flex;
+    justify-content: space-between;
+    background: #f7f7f7;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Medalhas */
+.grade-medalhas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.medalha {
+    border-radius: 16px;
+    padding: 18px 12px;
+    text-align: center;
+}
+
+.medalha.conquistada {
+    background: #fff8e1;
+    border: 2px solid var(--amarelo);
+}
+
+.medalha.bloqueada {
+    background: #f0f0f0;
+    border: 2px solid var(--cinza-borda);
+    opacity: 0.55;
+    filter: grayscale(60%);
+}
+
+.medalha-icone {
+    font-size: 32px;
+}
+
+.medalha-titulo {
+    font-weight: 800;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.medalha-descricao {
+    font-size: 12px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.medalhas-novas {
+    margin-top: 16px;
+}
+
+.medalha-conquistada-agora {
+    background: #fff8e1;
+    border: 2px solid var(--amarelo);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+/* Toggles de configuração */
+.opcao-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f7f7f7;
+    border: 2px solid var(--cinza-borda);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.opcao-toggle input {
+    width: 20px;
+    height: 20px;
+}
+
+.item-clicavel {
+    text-decoration: none;
+    color: var(--texto);
+    transition: background 0.15s ease-in-out;
+}
+
+.item-clicavel:hover {
+    background: #e6f7ff;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    .cartoes-status {
+        gap: 8px;
+    }
+    .cartao-status {
+        min-width: 70px;
+        padding: 12px;
+    }
+}
